@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/kube.min.css" />
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/static/css/custom.min.css" />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <!-- <link rel="stylesheet" href="/static/css/font-awesome.min.css" /> -->
+    <link rel="stylesheet" href="/static/css/custom.css" />
     <link rel="shortcut icon" href="/static/img/favicon.ico" />
-	<link href='https://fonts.googleapis.com/css?family=Playfair+Display+SC:700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -17,11 +16,10 @@
 		<div class="container">
 			<header class="group top-nav">
 				<div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
-				    <span class="logo">Menu</span>
 				</div>
-			    <nav id="navbar-1" class="navbar item-nav">
+			    <nav id="navbar-1" class="navbar item-navbar">
 				    <ul>
-				        <li class="active"><a href="/#about">About</a></li>
+				        <li><a href="/#about">About</a></li>
 				        <li><a href="/#experiences">Experiences</a></li>
 				        <li><a href="/#achievements">Achievements</a></li>
 				        <li><a href="/#skills">Skills</a></li>
@@ -30,23 +28,23 @@
 				</nav>
 			</header>
 		</div>
-	</div>
+    </div>
 
     <div class="container">
         {% block content %} {% endblock %}
     </div>
 
     <!-- Javascript -->
-	<script src="/static/js/jquery.min.js"></script>
-	<script src="/static/js/typed.min.js"></script>
-    <script src="/static/js/kube.min.js"></script>
-    <script src="/static/js/site.js"></script>
-	<script>
+    <!-- <script src="/static/js/jquery.min.js"></script> -->
+    <!-- <script src="/static/js/typed.min.js"></script> -->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- <script src="/static/js/site.js"></script> -->
+    <!-- <script>
                 function newTyped(){}$(function(){$("#typed").typed({
                 // Change to edit type effect
-                strings: ["developer", "student", "think of something"],
+                strings: ["developer",],
 
                 typeSpeed:90,backDelay:700,contentType:"html",loop:!0,resetCallback:function(){newTyped()}}),$(".reset").click(function(){$("#typed").typed("reset")})});
-    </script>
+    </script> -->
 </body>
 </html>
