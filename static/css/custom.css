@@ -181,3 +181,9 @@ footer .social li a {
 .link{
     text-decoration: none;
 }
+
+.text-muted {
+    color: #6c757d;/*gray*/
+    font-size: 0.95rem;
+}
+

@@ -1,9 +1,13 @@
 
-from jinja2 import Environment, FileSystemLoader
+import re
+import shutil
+
 from pathlib import Path
+from html import unescape
 
 import markdown
-import shutil
+
+from jinja2 import Environment, FileSystemLoader
 
 if __name__ == '__main__':
     template_dir = Path('templates')
@@ -37,9 +41,13 @@ if __name__ == '__main__':
         post_name = post.stem
         post_dir = blog_dir / f'{post_name}.html'
 
+        raw_text = post.read_text(encoding='utf-8')
+
         # Render markdown file into html
-        content = markdown.markdown(post.read_text(
-            encoding='utf-8'), extensions=['toc', 'codehilite', 'extra'])
+        content = markdown.markdown(
+            raw_text,
+            extensions=['toc', 'codehilite', 'extra']
+        )
 
         post_template = env.get_template('post.html')
         post_html = post_template.render(
@@ -50,10 +58,16 @@ if __name__ == '__main__':
         # Save post output
         post_dir.write_text(post_html, encoding='utf-8')
 
+        # Create plain-text excerpt (first 100 chars)
+        plain_text = re.sub('<[^<]+?>', '', content)  # remove HTML tags
+        plain_text = unescape(plain_text)
+        excerpt = plain_text[:100].strip()
+
         # Keep track of post metadata for blog listing
         posts.append({
             'title': post_name.replace('-', ' ').title(),
             'url': f'blog/{post_name}.html',
+            'excerpt': excerpt
         })
 
     print('Finished Rendering posts')
