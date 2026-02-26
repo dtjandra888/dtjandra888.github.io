@@ -7,3 +7,19 @@
 .post {
     margin-top: 2rem;
 }
+
+.search-container {
+    margin-bottom: 2rem;
+}
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.search-input:focus {
+    outline: none;
+    border-color: #666;
+}

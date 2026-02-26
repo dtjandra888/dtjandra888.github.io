@@ -2,6 +2,7 @@
 
 {% block extra_head %}
 <link rel="stylesheet" href="/static/css/blog.css" />
+<script src="/static/js/blog.js" defer></script>
 {% endblock %}
 
 {% block title %}Blog{% endblock %}
@@ -10,15 +11,25 @@
     <br>
     <h1>blog</h1>
     <br>
-    {% for post in posts %}
-    <div class="card">
-        <div class="card-body">
-            <h2>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </h2>
-            <p class="text-muted">{{ post.excerpt }}</p>
-        </div>
+    <div class="search-container">
+        <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search posts"
+            class="search-input"
+        >
     </div>
-    <br>
+    <div class="posts-list">
+    {% for post in posts %}
+        <div class="card post-item">
+            <div class="card-body">
+                <h2 class="post-title">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </h2>
+                <p class="text-muted">{{ post.excerpt }}</p>
+            </div>
+        </div>
+        <br>
     {% endfor %}
+    </div>
 {% endblock%}
