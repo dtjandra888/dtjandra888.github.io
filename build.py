@@ -61,7 +61,7 @@ if __name__ == '__main__':
         # Create plain-text excerpt (first 100 chars)
         plain_text = re.sub('<[^<]+?>', '', content)  # remove HTML tags
         plain_text = unescape(plain_text)
-        excerpt = plain_text[:100].strip()
+        excerpt = plain_text[:184].strip()
 
         # Keep track of post metadata for blog listing
         posts.append({
